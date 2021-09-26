@@ -147,6 +147,8 @@ def draw_3d_simplicial_complex(simplicial_complex):
 
     #List of 2-simplices
     triangles = list(set(itertools.chain(*[[tuple(sorted((i, j, k))) for i, j, k in itertools.combinations(simplex, 3)] for simplex in simplices])))
+    
+    # Credit: Much of this code was lift from the site: https://deepnote.com/@deepnote/3D-network-visualisations-using-plotly-oYxeN6UXSye_3h_ulKV2Dw
        
     G = nx.Graph()
     G.add_edges_from(edges)
