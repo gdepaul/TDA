@@ -104,24 +104,8 @@ def draw_3d_simplicial_complex(simplicial_complex):
         ----
         simplicial_complex: a SAGE SimplicialComplex structure. (Added by Greg DePaul)
         
-        pos: dict (default=None)
-            If passed, this dictionary of positions d:(x,y) is used for placing the 0-simplices.
-            The standard nx spring layour is used otherwise.
-           
-        ax: matplotlib.pyplot.axes (default=None)
-        
-        return_pos: dict (default=False)
-            If True returns the dictionary of positions for the 0-simplices.
-            
-        References
-        ----------    
-        .. [1] I. Iacopini, G. Petri, A. Barrat & V. Latora (2019)
-               "Simplicial Models of Social Contagion".
-               Nature communications, 10(1), 2485.
-               
-        Authors: 
-        .. I. Iacopini (Original Author) - github-username: iaciac
-        .. G. DePaul - github-username: gdepaul
+        Credit: Much of this code was lifted from the site: 
+            https://deepnote.com/@deepnote/3D-network-visualisations-using-plotly-oYxeN6UXSye_3h_ulKV2Dw
     """
 
     # Obtain simplices from SAGE simplicial complex
@@ -148,8 +132,7 @@ def draw_3d_simplicial_complex(simplicial_complex):
     #List of 2-simplices
     triangles = list(set(itertools.chain(*[[tuple(sorted((i, j, k))) for i, j, k in itertools.combinations(simplex, 3)] for simplex in simplices])))
     
-    # Credit: Much of this code was lift from the site: https://deepnote.com/@deepnote/3D-network-visualisations-using-plotly-oYxeN6UXSye_3h_ulKV2Dw
-       
+    # Construct Graph
     G = nx.Graph()
     G.add_edges_from(edges)
     Num_nodes = len(nodes)
